@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Treemap from './components/Treemap';
+import DataInput from './components/DataInput';
+import { useCallback, useState } from 'react';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+  const [row, setRow] = useState(0);
+
+  const dataOnChange = useCallback((newData) => {
+    setData(newData);
+  }, []);
+
+  const rowOnChange = useCallback((newRow) => {
+    setRow(newRow);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <DataInput
+        className='DataInput'
+        dataOnChange={dataOnChange}
+        rowOnChange={rowOnChange}
+        data={data}
+        row={row}
+      />
+      <Treemap className='Treemap' data={data} row={row} />
     </div>
   );
-}
+};
 
 export default App;
