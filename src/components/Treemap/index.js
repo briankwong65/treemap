@@ -7,7 +7,10 @@ const Treemap = (props) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.treemap}>Hi, I am Treemap!</div>
-      <div>{data}</div>
+      {/* {data.map((data) => (
+        <div>{data}</div>
+      ))} */}
+      {/* <div>{data}</div> */}
       <div>{row}</div>
     </div>
   );

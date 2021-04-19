@@ -8,7 +8,13 @@ const App = () => {
   const [row, setRow] = useState(0);
 
   const dataOnChange = useCallback((newData) => {
-    setData(newData);
+    try {
+      newData = JSON.parse(newData);
+      console.log(newData);
+      setData(newData);
+    } catch (err) {
+    }
+    
   }, []);
 
   const rowOnChange = useCallback((newRow) => {
