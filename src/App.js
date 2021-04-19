@@ -5,16 +5,14 @@ import { useCallback, useState } from 'react';
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [row, setRow] = useState(0);
+  const [row, setRow] = useState(1);
 
   const dataOnChange = useCallback((newData) => {
     try {
       newData = JSON.parse(newData);
       console.log(newData);
       setData(newData);
-    } catch (err) {
-    }
-    
+    } catch (err) {}
   }, []);
 
   const rowOnChange = useCallback((newRow) => {
