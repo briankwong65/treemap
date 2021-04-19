@@ -20,10 +20,14 @@ const DataInput = (props) => {
 
   return (
     <div className={classNames(styles.container, className)}>
-      <div>Data</div>
-      <textarea onChange={handleDataChange}></textarea>
+      <div className={styles.inputContainer}>
+        <div>Data</div>
+        <textarea onChange={handleDataChange}></textarea>
+      </div>
+      <div className={styles.inputContainer}>
       <div>Row Number</div>
-      <input type='number' onChange={handleRowChange}></input>
+        <input type='number' onChange={handleRowChange}></input>
+      </div>
     </div>
   );
 };
