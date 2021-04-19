@@ -1,17 +1,28 @@
 import React from 'react';
 import * as styles from './styles.module.scss';
 import classNames from 'classnames';
+import Node from '../Node';
 
 const Treemap = (props) => {
   const { className, data, row } = props;
+  data.sort((a, b) => {
+    return b.weight - a.weight;
+  });
+  const weightSum = data.reduce((sum, cur) => sum + cur.weight, 0);
+  const minWidth = Math.ceil(weightSum / row);
   return (
     <div className={classNames(styles.container, className)}>
-      <div className={styles.treemap}>Hi, I am Treemap!</div>
-      {/* {data.map((data) => (
-        <div>{data}</div>
-      ))} */}
-      {/* <div>{data}</div> */}
-      <div>{row}</div>
+      {data.map((data, index) => {
+        return (
+          <Node
+            key={`data-${index}`}
+            name={data.name}
+            weight={data.weight}
+            value={data.value}
+          />
+        );
+      })}
+      <div>{minWidth}</div>
     </div>
   );
 };
