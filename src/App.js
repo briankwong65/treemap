@@ -11,15 +11,12 @@ const App = () => {
     try {
       newDataList = JSON.parse(newDataList);
       setDataList(newDataList);
-      console.log("changed dataList");
-      console.log(dataList);
     } catch (err) {}
-  }, [dataList]);
+  }, []);
 
   const rowOnChange = useCallback((newRow) => {
     if (newRow > 0) {
       setRow(newRow);
-      console.log("changed row");
     }
   }, []);
 
