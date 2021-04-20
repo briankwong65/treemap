@@ -18,6 +18,8 @@ const Treemap = (props) => {
 
     if (row >= sortedDataList.length) {
       const formattedDataTemp = Array.from({ length: row }, () => []);
+
+      // sort the data list in decending order
       sortedDataList.forEach((data, index) => {
         formattedDataTemp[index].push(data);
       });
@@ -30,11 +32,10 @@ const Treemap = (props) => {
       const width = Math.ceil(weightSum / row);
       let currentRow = 0;
       let remainingWidth = width;
-      console.log('dataList', sortedDataList);
-      console.log('row', row);
       const dataListTemp = [...sortedDataList];
       const formattedDataTemp = Array.from({ length: row }, () => []);
 
+      // add the data to the current row if there is enough remaining width, else, add to the next row
       while (currentRow < row) {
         let i = 0;
         while (dataListTemp.length > 0 && i < dataListTemp.length) {
@@ -59,17 +60,18 @@ const Treemap = (props) => {
       setFormattedData(formattedDataTemp);
 
       if (dataListTemp.length > 0) {
-        console.log('formattedDataTemp', formattedDataTemp);
-        console.log(formattedDataTemp.includes([]));
-        let rowFulls = true;
+        let rowsFull = true;
         for (const dataRow of formattedDataTemp) {
           if (dataRow.length === 0) {
-            rowFulls = false;
+            rowsFull = false;
           }
         }
-        if (rowFulls) {
+
+        // if the rows are full, append to the first row
+        if (rowsFull) {
           formattedDataTemp[0].push(dataListTemp[0]);
         } else {
+          // else, add the data on the first row alone
           const temp = Array.from({ length: row }, () => []);
           temp[0].push(dataListTemp[0]);
           formattedDataTemp.forEach((dataRow, index) => {
@@ -79,18 +81,15 @@ const Treemap = (props) => {
           setFormattedData(temp);
         }
       }
-      console.log('formatted data', formattedDataTemp);
     }
   }, [dataList, row]);
 
   return (
     <div className={classNames(styles.treemap, className)}>
       {formattedData.map((dataRow, row) => {
-        console.log('dataRow', dataRow);
         return (
-          <div style={{ textAlign: 'left' }}>
+          <div key={`row-${row}`} style={{ textAlign: 'left' }}>
             {dataRow.map((data, index) => {
-              console.log('data', data.weight / width);
               return (
                 <Node
                   key={`data-${row}-${index}`}
