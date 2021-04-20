@@ -3,12 +3,12 @@ import * as styles from './styles.module.scss';
 import classNames from 'classnames';
 
 const DataInput = (props) => {
-  const { className, dataOnChange, rowOnChange } = props;
-  const handleDataChange = useCallback(
+  const { className, dataListOnChange, rowOnChange } = props;
+  const handleDataListChange = useCallback(
     (event) => {
-      dataOnChange(event.target.value);
+      dataListOnChange(event.target.value);
     },
-    [dataOnChange]
+    [dataListOnChange]
   );
 
   const handleRowChange = useCallback(
@@ -22,7 +22,7 @@ const DataInput = (props) => {
     <div className={classNames(styles.container, className)}>
       <div className={styles.inputContainer}>
         <div>Data</div>
-        <textarea onChange={handleDataChange}></textarea>
+        <textarea onChange={handleDataListChange}></textarea>
       </div>
       <div className={styles.inputContainer}>
       <div>Row Number</div>

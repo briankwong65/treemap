@@ -4,31 +4,34 @@ import DataInput from './components/DataInput';
 import { useCallback, useState } from 'react';
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [dataList, setDataList] = useState([]);
   const [row, setRow] = useState(1);
 
-  const dataOnChange = useCallback((newData) => {
+  const dataListOnChange = useCallback((newDataList) => {
     try {
-      newData = JSON.parse(newData);
-      console.log(newData);
-      setData(newData);
+      newDataList = JSON.parse(newDataList);
+      setDataList(newDataList);
+      console.log("changed dataList");
+      console.log(dataList);
     } catch (err) {}
-  }, []);
+  }, [dataList]);
 
   const rowOnChange = useCallback((newRow) => {
-    setRow(newRow);
+    if (newRow > 0) {
+      setRow(newRow);
+      console.log("changed row");
+    }
   }, []);
 
   return (
     <div className='App'>
       <DataInput
         className='DataInput'
-        dataOnChange={dataOnChange}
+        dataListOnChange={dataListOnChange}
         rowOnChange={rowOnChange}
-        data={data}
         row={row}
       />
-      <Treemap className='Treemap' data={data} row={row} />
+      <Treemap className='Treemap' dataList={dataList} row={row} />
     </div>
   );
 };
