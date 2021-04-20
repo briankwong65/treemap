@@ -7,7 +7,6 @@ const Treemap = (props) => {
   const { className, dataList, row } = props;
 
   const [formattedData, setFormattedData] = useState(Array.from({length: row}, () => []));
-  const [weightSum, setWeightSum] = useState(1);
   const [width, setWidth] = useState(1);
   
   useEffect(() => {
@@ -53,9 +52,17 @@ const Treemap = (props) => {
         remainingWidth = width;
       }
 
-      setWeightSum(weightSum);
       setWidth(width);
       setFormattedData(formattedDataTemp);
+
+      if (dataListTemp.length > 0) {
+        const temp = Array.from({length: row}, () => []);
+        temp[0].push(dataListTemp[0]);
+        formattedDataTemp.forEach((dataRow, index) => {
+          temp.push(dataRow);
+        })
+        setFormattedData(temp);
+      }
       console.log('formatted data', formattedDataTemp);
     }
   }, [dataList, row]);
