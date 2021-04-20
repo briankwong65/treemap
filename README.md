@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Notes
+
+Valid JSON format must be entered in the Data field, in order to generate corresponding Treemap.
+
 ## Install Packages
 
 ### `yarn install`
