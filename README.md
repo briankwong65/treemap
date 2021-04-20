@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Pre-requisites
 
-Installed [Node](https://nodejs.org/en/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/).
+Installed [Node.js](https://nodejs.org/en/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/).
 
 ## Packages Installation
 
