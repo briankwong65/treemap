@@ -10,7 +10,7 @@ Valid JSON format must be entered in the Data field, in order to generate corres
 
 ### `yarn install`
 
-## Available Scripts
+## Start / Build the project
 
 In the project directory, you can run:
 
