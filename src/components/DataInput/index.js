@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import * as styles from './styles.module.scss';
+import { TextareaAutosize, InputLabel, TextField } from '@material-ui/core';
 import classNames from 'classnames';
 
 const DataInput = (props) => {
@@ -21,12 +22,20 @@ const DataInput = (props) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.inputContainer}>
-        <div>Data</div>
-        <textarea onChange={handleDataListChange}></textarea>
+        <InputLabel>Data</InputLabel>
+        <TextareaAutosize
+          className={styles.textarea}
+          onChange={handleDataListChange}
+        ></TextareaAutosize>
       </div>
       <div className={styles.inputContainer}>
-      <div>Row Number</div>
-        <input type='number' onChange={handleRowChange}></input>
+        <TextField
+          className={styles.input}
+          label='Row Number'
+          variant='outlined'
+          type='number'
+          onChange={handleRowChange}
+        />
       </div>
     </div>
   );

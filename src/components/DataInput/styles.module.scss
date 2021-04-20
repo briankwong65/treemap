@@ -1,5 +1,11 @@
 .container {
-    .inputContainer {
-        padding-top: 20px;
+  .inputContainer {
+    padding-top: 20px;
+    .textarea {
+      width: 100%;
     }
+    .input {
+      text-align: center;
+    }
+  }
 }
