@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Pre-requisites
+
+Installed [Node](https://nodejs.org/en/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/).
+
 ## Packages Installation
 
 ### `yarn install`
