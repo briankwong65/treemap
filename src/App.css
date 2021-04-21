@@ -1,12 +1,11 @@
 .App {
   text-align: center;
-  padding: 7%;
 }
 
 .DataInput {
-  float: left;
+
 }
 
 .Treemap {
-  float: right;
+  padding: 7%;
 }

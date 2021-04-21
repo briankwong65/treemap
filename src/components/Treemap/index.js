@@ -86,22 +86,24 @@ const Treemap = (props) => {
 
   return (
     <div className={classNames(styles.treemap, className)}>
-      {formattedData.map((dataRow, row) => {
-        return (
-          <div key={`row-${row}`} style={{ textAlign: 'left' }}>
-            {dataRow.map((data, index) => {
-              return (
-                <Node
-                  key={`data-${row}-${index}`}
-                  name={data.name}
-                  width={data.weight / width}
-                  value={data.value}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
+      <div style={{display: 'inline-block'}}>
+        {formattedData.map((dataRow, row) => {
+          return (
+            <div key={`row-${row}`} style={{ textAlign: 'left' }}>
+              {dataRow.map((data, index) => {
+                return (
+                  <Node
+                    key={`data-${row}-${index}`}
+                    name={data.name}
+                    width={data.weight / width}
+                    value={data.value}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

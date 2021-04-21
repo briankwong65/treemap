@@ -6,7 +6,7 @@ const Node = (props) => {
   const percentageValue = (value*100).toFixed(2);
   const color = percentageValue >= 0 ? 'green' : 'red';
   return( 
-    <div className={styles.node} style={{backgroundColor: color, width: width*600}}>
+    <div className={styles.node} style={{backgroundColor: color, width: (width*600)}}>
       {name}
       <br />
       {percentageValue}%
