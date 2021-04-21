@@ -34,4 +34,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Notes
 
-Valid JSON format must be entered in the Data field in order to generate corresponding Treemap.
+Valid JSON format must be entered in the Data field in order to generate corresponding Treemap.\
+The current version only supports computers/laptops.
